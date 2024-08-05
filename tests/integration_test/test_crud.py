@@ -6,9 +6,7 @@ from src.helpers.payload_managers import payload_create_booking,payload_create_t
 from src.helpers.comman_verification import verify_response_key_should_not_be_none,verify_http_status_code
 import pytest
 
-
 class TestCreateBooking(object):
-
     @pytest.fixture()
     def create_token(self):
         response = post_requests(
@@ -19,7 +17,7 @@ class TestCreateBooking(object):
             in_json=False
         )
 
-        verify_http_status_code(response,200)
+        verify_http_status_code(response, 200)
         token = response.json()["token"]
         print(token)
         verify_response_key_should_not_be_none(token)
@@ -35,7 +33,6 @@ class TestCreateBooking(object):
         bookingid = response.json()["bookingid"]
         print(bookingid)
         return bookingid
-
 
     def test_update_booking(self,create_token,create_booking):#token and booking ID from the create booking. token
         bookingId = create_booking

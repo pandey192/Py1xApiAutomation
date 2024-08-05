@@ -23,3 +23,9 @@ pip freeze > requirments.txt
 ``
 pip install -r requirements.txt
 ``
+
+#for parellel test case execution
+``
+pip install pytest-xdist
+pytest -n auto test_parallel.py
+``
